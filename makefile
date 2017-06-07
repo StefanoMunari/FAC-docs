@@ -1,6 +1,7 @@
 CC=latexmk
+SRC=./res/section/*.tex
 
-compile: main.tex 
+compile: main.tex $(SRC)
 	$(CC) main.tex -pdf
 
 clean:
