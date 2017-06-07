@@ -1,1 +1,11 @@
 \section{Lexer}
+In our program the lexer has the following responsabilities:
+\begin{itemize}
+\item Produce the token for the parser;
+\item Set the \verb|bison/flex| variable \verb|yylloc| -- this 
+variable contains the information about the first column, last column,
+first row and last row of the token read. More details on its usage in
+bison can be read in the bison section \ref{sec:parser}.
+\item Launch an error in case of a fract constant with denominator equal
+to $0$ -- it is simply not considered as a valid lexeme.
+\end{itemize}
