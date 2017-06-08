@@ -1,8 +1,10 @@
 \section{Lexer}
-In our program the lexer has the following responsabilities:
+The lexical analyzer has been written using flex.
+It has the following responsabilities:
 \begin{itemize}
+\item Verify that the input stream is lexically correct;
 \item Produce the token stream for the parser;
-\item Set the \verb|bison/flex| variable \verb|yylloc| -- this 
+\item Set the \verb|bison/flex| variable \verb|yylloc| -- this
 variable contains the information about the first column, last column,
 first row and last row of the token read. More details on its usage in
 bison can be read in the bison section \ref{sec:parser}.
