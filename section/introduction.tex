@@ -1,12 +1,11 @@
 \section*{Introduction}
 
-FAC is the frontend part of a compiler which translates programs written in the
+FAC is the front end part of a compiler which translates programs written in the
 F language into a target representation. It is interesting to note that FAC can
-potentially support many target represenations\/languages.
+potentially support many target represenations languages.
 
 \subsection*{Architecture}
 Fig. \ref{fig:arch-ovw} describes the architecture of FAC.
-
 Its high-level structure is formed by two macro components:
 \begin{itemize}
 \item Lexer - the lexical analyzer;
@@ -41,6 +40,6 @@ We chose to use two different intermediate representations:
 \begin{figure}[H]
   \centering
   \includegraphics[width=.9\columnwidth]{img/eps/architecture.eps}
-  \caption{Architectural Overview}
+  \caption{Architectural Overview of the FAC compiler.}
   \label{fig:arch-ovw}
 \end{figure}
