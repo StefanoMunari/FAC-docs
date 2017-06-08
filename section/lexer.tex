@@ -27,3 +27,13 @@ for lexer symbols.
 We have also implemented the regex which checks the comments. So it is possible
 write comments in the source code of F programs. They will be simply discarded
 during the phase of lexical analysis.
+
+\subsection{Modularity}
+The lexer can be generated on the fly. Indeed, each regex and each rule are
+contained in a file which reflects respectively the regex and the rule purpose.
+The regexs and the rules are automatically assembled by a python script.
+The script reads two configuration files written in json. These files specifies
+the order in which the regexs and the rules have to be written in the lexer.fl
+file. Thus we can simply modify the configuration files to change the
+the precedence of the lexer rules\footnote{precedence rules are applied only in
+case of a tie}.
