@@ -1,1 +1,16 @@
 \section{Symbol Table}
+The symbol table has been implemented using
+\href{https://troydhanson.github.io/uthash/}{uthash} because it is a reliable
+and efficient solution to implement a symbol table.
+\\
+Basically, the symbol table contains the variables used in the program.
+For each variable the symbol table stores:
+\begin{itemize}
+	\item the identifier;
+	\item the type;
+	\item value.
+\end{itemize}
+
+The symbol table is fundamental during the type checking and also during the
+code generation phase. During the first phase it provides the type to the
+type checker while during the second phase it provides also the value.
