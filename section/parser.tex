@@ -5,10 +5,22 @@ syntax correctness and to produce the Abstract Syntax Tree (AST).
 
 \subsection{F -- Syntax choice}
 We think that a language targeted to girls and boys of the middle-school,
-that are neophyte programmers should be strongly typed (in order to 
-learn how a high-level language works), but at the same
+that are neophyte programmers should be statically and strongly typed 
+(in order to learn how a programming language works), but at the same
 time easy to use. Thus we introduce some syntactic sugar, e.g. we 
 provide directly the implication operator between boolean expression.
+
+The syntax is very similar to the C one. There is only a slight difference
+for the disequality. We preferred the pascal \verb|<>| over the C \verb|!=|. 
+
+In addition to C we have introduced the following
+boolean operators: \verb|<->|, the logical biimplication, 
+\verb|->| the implication and \verb|XOR|, the exclusive or.
+
+The syntactic symbols are used \emph{only} in the lexer. In the
+rest of the program, i.e. in the parser and in the semantic analyser, only
+internal representation of the operators are used. Therefore each grammatic
+symbol can be safely replaced without affecting the correctness of FAC.
 
 
 
