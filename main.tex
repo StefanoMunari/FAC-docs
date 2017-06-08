@@ -11,6 +11,7 @@
 %% Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
@@ -27,19 +28,19 @@
 % Set path for the sections
 \makeatletter
 \providecommand*{\input@path}{}
-\g@addto@macro\input@path{{res/section/}}% append
+\g@addto@macro\input@path{{section/}}% append
 \makeatother
 
 
 \begin{document}
 \maketitle
-\input{Introduction}
-\input{Lexer}
-\input{Parser}
-\input{Type-Checking}
-\input{Three-Address-Code}
-\input{Conclusion}
+\input{introduction}
+\input{lexer}
+\input{parser}
+\input{type-checking}
+\input{three-address-code}
+\input{conclusion}
 \appendix
-\input{User-Manual}
+\input{user-manual}
 
 \end{document}
