@@ -12,7 +12,6 @@ bison can be read in the bison section \ref{sec:parser}.
 to $0$ -- it is simply not considered as a valid lexeme.
 \end{itemize}
 
-
 \subsection{Lexemes}
 We chose to define an identifier for each lexem, this enable us to change the
 syntax of the F language without affecting its semantics and the other
@@ -27,6 +26,15 @@ for lexer symbols.
 We have also implemented the regex which checks the comments. So it is possible
 write comments in the source code of F programs. They will be simply discarded
 during the phase of lexical analysis.
+
+\subsection{Options}
+We have used some flex options which enable optimizations
+and to track the source code lines during the lexical analysis. Indeed, the
+generated lexer does not contains a compressed table but a larger one which can
+be accessed faster than the compressed one. Also, we used the align option to
+notify flex to align memory access location of the generated table when
+possible. Unfortunately, the line tracking option kills the performances.
+In this case we have opted for a cleaner solution than an efficient one.
 
 \subsection{Modularity}
 The lexer can be generated on the fly. Indeed, each regex and each rule are
