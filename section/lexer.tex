@@ -8,6 +8,22 @@ It has the following responsabilities:
 variable contains the information about the first column, last column,
 first row and last row of the token read. More details on its usage in
 bison can be read in the bison section \ref{sec:parser}.
-\item Launch an error in case of a fract constant with denominator equal
+\item Raise an error in case of a fract constant with denominator equal
 to $0$ -- it is simply not considered as a valid lexeme.
 \end{itemize}
+
+
+\subsection{Lexemes}
+We chose to define an identifier for each lexem, this enable us to change the
+syntax of the F language without affecting its semantics and the other
+components. Basically, the goal of this choice is to have something similar to
+a C macro or a placeholder for the syntax symbols of the F language.
+For example we have defined \verb|SUM| which is a placeholder for \verb|+|, so
+if tomorrow we decide to use \verb|plus| to perform the arithmetic sum we can do
+it transparently to the rest of the FAC code. This provides a great flexibility
+for lexer symbols.
+
+\subsection{Comments}
+We have also implemented the regex which checks the comments. So it is possible
+write comments in the source code of F programs. They will be simply discarded
+during the phase of lexical analysis.

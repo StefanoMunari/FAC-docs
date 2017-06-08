@@ -1,28 +1,32 @@
 \section{Parser}
 \label{sec:parser}
 The main goal of the parser written in bison is to check the
-syntax correctness and to produce the Abstract Syntax Tree (AST). 
+syntax correctness and to produce the Abstract Syntax Tree (AST).
 
-\subsection{F -- Syntax choice}
+\subsection{F -- Syntax choices}
 We think that a language for students of the middle-school,
 who are neophyte programmers, should be statically typed and type safe. 
 At the same time it should be easy to use. 
 Indeed, these requirements can help the student to learn how a simple 
 high-level language works by discriminating between the different types.
-Thus we introduce some syntactic sugar, e.g. we 
+In particular our minimal type system provides two completely unrelated types.
+introduce some syntactic sugar, e.g. we 
 provide directly the implication operator between boolean expression.
 
-The syntax is very similar to the C one. There is only a slight difference
-for the disequality. We preferred the Pascal \verb|<>| over the C \verb|!=|. 
+Thus we discriminated these types by introducing specific boolean
+operators (in addition to the one usually provided):
+\begin{itemize}
+	\item \verb|XOR| - exclusive or;
+	\item \verb|<->| - logical biimplication (syntactic sugar);
+	\item \verb|->| - logical implication (syntactic sugar);
+\end{itemize}
 
-In addition to C we have introduced the following
-boolean operators: \verb|<->|, the logical biimplication, 
-\verb|->| the implication and \verb|XOR|, the exclusive or.
+The rest is very similar to the C one. There is only a slight difference
+for the arithmetic disequality. We preferred the Pascal \verb|<>| over 
+the C \verb|!=|.
 
-The syntactic symbols are used \emph{only} in the lexer. In the
+The syntactic symbols exist \emph{only} in the lexer. In the
 rest of the program, i.e. in the parser and in the semantic analyser, only
-internal representation of the operators are used. Therefore each grammatic
+internal representation of the operators are used. Therefore each grammar
 symbol can be safely replaced without affecting the correctness of FAC.
-
-
 
