@@ -7,7 +7,7 @@ It has the following responsabilities:
 \item Set the \verb|bison/flex| variable \verb|yylloc| -- this
 variable contains the information about the first column, last column,
 first row and last row of the token read. More details on its usage in
-bison can be read in the bison section \ref{sec:parser}.
+bison can be read in section \ref{sec:parser}.
 \item Raise an error in case of a fract constant with denominator equal
 to $0$ -- it is simply not considered as a valid lexeme.
 \end{itemize}
@@ -24,13 +24,13 @@ for lexer symbols.
 
 \subsection{Comments}
 We have also implemented the regex which checks the comments. So it is possible
-write comments in the source code of F programs. They will be simply discarded
-during the phase of lexical analysis.
+to write comments in the source code of F programs. They will be simply 
+discarded during the phase of lexical analysis.
 
 \subsection{Options}
 We have used some flex options which enable optimizations
 and to track the source code lines during the lexical analysis. Indeed, the
-generated lexer does not contains a compressed table but a larger one which can
+generated lexer does not contain a compressed table but a larger one which can
 be accessed faster than the compressed one. Also, we used the align option to
 notify flex to align memory access location of the generated table when
 possible. Unfortunately, the line tracking option kills the performances.
@@ -39,9 +39,9 @@ In this case we have opted for a cleaner solution than an efficient one.
 \subsection{Modularity}
 The lexer can be generated on the fly. Indeed, each regex and each rule are
 contained in a file which reflects respectively the regex and the rule purpose.
-The regexs and the rules are automatically assembled by a python script.
-The script reads two configuration files written in json. These files specifies
-the order in which the regexs and the rules have to be written in the lexer.fl
-file. Thus we can simply modify the configuration files to change the
-the precedence of the lexer rules\footnote{precedence rules are applied only in
-case of a tie}.
+The regexs and the rules are automatically assembled by a Python script.
+The script reads two configuration files written in json. These files specify
+the order in which the regexs and the rules have to be written in the
+\path{lexer.fl} file. Thus we can simply modify the configuration files to 
+change the precedence of the lexer rules\footnote{Precedence rules are 
+applied only in case of a tie.}.
