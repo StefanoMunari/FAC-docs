@@ -5,18 +5,17 @@ syntax correctness and to produce the Abstract Syntax Tree (AST).
 
 \subsection{F -- Syntax choices}
 We think that a language for students of the middle-school,
-who are neophyte programmers, should be statically typed and type safe. 
-At the same time it should be easy to use. 
+who are neophyte programmers, should be statically typed and type safe and
+at the same time it should be easy to use. 
 Indeed, these requirements can help the student to learn how a simple 
 high-level language works by discriminating between the different types.
 In particular our minimal type system provides two completely unrelated types.
-introduce some syntactic sugar, e.g. we 
-provide directly the implication operator between boolean expression.
+
 
 Thus we discriminated these types by introducing specific boolean
 operators (in addition to the one usually provided):
 \begin{itemize}
-	\item \verb|XOR| - exclusive or;
+	\item \verb|XOR| - exclusive or (syntactic sugar for the boolean disequality);
 	\item \verb|<->| - logical biimplication (syntactic sugar);
 	\item \verb|->| - logical implication (syntactic sugar);
 \end{itemize}
@@ -30,3 +29,36 @@ rest of the program, i.e. in the parser and in the semantic analyser, only
 internal representation of the operators are used. Therefore each grammar
 symbol can be safely replaced without affecting the correctness of FAC.
 
+\subsection{Grammar}
+We will report \emph{only} the peculiarities of our grammar and not the common 
+features.
+
+\paragraph{Expression}
+
+Originally we distinguished between boolean expressions (bexpr) and 
+arithmetic ones (aexpr) but, since we had boolean and fract variables, 
+this lead to bison conflicts.
+Indeed, bison could not distinguish between arithmetic and boolean variables
+by only looking at the identifier. 
+
+So we decided to simplify the grammar to allow also malformed expressions that
+are checked during the type checking phase.
+
+%\begin{verbatim}
+%expr,e1, e2 ::= f | b | id | e1 AOP2 e2 | AOP1 expr | !expr | e1 BOP2 e2 | e1 RELOP e2
+%\end{verbatim}
+
+\paragraph{Declaration}
+
+In order to avoid possible unitialized variables in the code, the grammar 
+forces the user to assign a value to a declared variable. This can avoid
+typical C undefined behaviours, that can arise when branching are involved. As
+demonstrated by the following listing:
+\begin{verbatim}
+fract f;
+while( BEXPR ) {
+	// Do some stuff
+	f = [1 | 3];
+}
+//is f initialized or not?
+\end{verbatim}
