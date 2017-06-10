@@ -34,14 +34,15 @@ We will report \emph{only} the peculiarities of our grammar and not the common
 features.
 
 \paragraph{Expression}
+In F you have two types for the variables: fract and boolean.
+Originally we distinguished two grammar rules, one for boolean and 
+one for arithmetic expressions. Unfortunately this distinction
+lead to bison conflicts. 
+Indeed one valid expression built by only one identifier could not be 
+classified by bison as a boolean or as an airthmetic expression.
 
-Originally we distinguished between boolean expressions (bexpr) and 
-arithmetic ones (aexpr) but, since we had boolean and fract variables, 
-this lead to bison conflicts.
-Indeed, bison could not distinguish between arithmetic and boolean variables
-by only looking at the identifier. 
 
-So we decided to simplify the grammar to allow also malformed expressions that
+So, we decided to simplify the grammar to allow also malformed expressions that
 are checked during the type checking phase.
 
 %\begin{verbatim}
@@ -52,13 +53,13 @@ are checked during the type checking phase.
 
 In order to avoid possible unitialized variables in the code, the grammar 
 forces the user to assign a value to a declared variable. This can avoid
-typical C undefined behaviours, that can arise when branching are involved. As
+typical C undefined behaviours, that can arise when branching are involved, as
 demonstrated by the following listing:
 \begin{verbatim}
 fract f;
 while( BEXPR ) {
-	// Do some stuff
-	f = [1 | 3];
+    // Do some stuff
+    f = [1 | 3];
 }
 //is f initialized or not?
 \end{verbatim}
