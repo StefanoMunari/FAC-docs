@@ -31,9 +31,10 @@ symbol can be safely replaced without affecting the correctness of FAC.
 
 \subsection{Grammar}
 We will report \emph{only} the peculiarities of our grammar and not the common 
-features.
+features. You can find the whole grammar
+in the file \path{src/c_src/parser/parser.y}.
 
-\paragraph{Expression}
+\paragraph{Expressions}
 In F you have two types for the variables: fract and boolean.
 Originally we distinguished two grammar rules, one for boolean and 
 one for arithmetic expressions. Unfortunately this distinction
@@ -49,7 +50,7 @@ are checked during the type checking phase.
 %expr,e1, e2 ::= f | b | id | e1 AOP2 e2 | AOP1 expr | !expr | e1 BOP2 e2 | e1 RELOP e2
 %\end{verbatim}
 
-\paragraph{Declaration}
+\paragraph{Declarations}
 
 In order to avoid possible unitialized variables in the code, the grammar 
 forces the user to assign a value to a declared variable. This can avoid
