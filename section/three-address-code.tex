@@ -4,5 +4,6 @@ the three address code. As reported by the Dragon Book this representation
 can help in optimizing the resulting code, because the instructions can be 
 easily swapped to improve the performances.
 
-We generate the three address code starting from the AST, which does not contain
-type errors.
+We generate the three address code from an AST, that passed the type checking
+phase. To make it even easier to deal the instructions we chose to use 
+doubly-linked lists.
