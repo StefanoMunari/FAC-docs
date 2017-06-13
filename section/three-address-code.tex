@@ -7,3 +7,8 @@ easily swapped to improve the performances.
 We generate the three address code from an AST, that passed the type checking
 phase. To make it even easier to deal the instructions we chose to use 
 doubly-linked lists.
+
+While traversing the AST we generate the three address code in a bottom up
+fashion using \emph{only} syntethised attributes. This makes the three address
+code generator intuitive.
+ 
