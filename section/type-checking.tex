@@ -3,10 +3,10 @@
 
 The type-checker receives as input the AST created by the 
 parser. This data structure is really convenient to perform
-type checking, because it gets rid of the syntactic symbols (e.g. parenthesis).
-In our implementation each operator is also grouped into a category 
-(e.g. LT, LE, EQ, NEQ, GT, GE belongs to the category RELOP),
-so that we need only a type system rule for each opeation of the category.
+type checking, because it gets rid of the syntactic symbols.
+In our implementation each operator is also grouped into a category.
+For instance the operators LT, LE, EQ, NEQ, GT, GE belongs to the category 
+RELOP. So, we need only a type system rule for each opeation of the category.
 This makes the implementation of the type checker easy to read.
 
 
@@ -16,5 +16,5 @@ corresponding symbol table entry, thus facilitating the type checking.
 
 In other words we implemented a simple type system that exploits the symbol
 table as the context. Each time a new variable is declared 
-the context is updated with the new variables. This allows us to find whenever
+the context is updated with the new variable. This allows us to find whenever
 a variable is used before its declaration.
