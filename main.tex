@@ -13,10 +13,21 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{url}
+\usepackage{listings}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{authblk}
+
+\lstdefinelanguage{F}{%
+	language     = C,
+	morekeywords = {fract},
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{gray}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#}
+}
 
 \title{FAC - F Accademic Compiler}
 \author[1]{Mirko Bez}
@@ -37,6 +48,7 @@
 \maketitle
 \tableofcontents
 \listoffigures
+\lstlistoflistings
 \newpage
 \input{introduction}
 \input{lexer}
