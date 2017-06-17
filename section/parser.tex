@@ -4,42 +4,42 @@ The main goal of the parser written in bison is to check the
 syntax correctness and to produce the Abstract Syntax Tree (AST).
 
 \subsection{F -- Syntax choices}
-We think that a language for students of the middle-school,
-who are neophyte programmers, should be statically typed and type safe and
-at the same time it should be easy to use. 
-Indeed, these requirements can help the student to learn how a simple 
+We think that a language for students of the middle-school should be
+statically typed and type safe; at the same time it should be easy to use.
+Indeed, these requirements can help the student to learn how a simple
 high-level language works by discriminating between the different types.
-In particular our minimal type system provides two completely unrelated types.
+In particular, our minimal type system provides two completely unrelated types.
 
 
-Thus we discriminated these types by introducing specific boolean
-operators (in addition to the one usually provided):
+Thus, we discriminated between them by introducing specific type-related
+operators. In particular we have defined some boolean operators
+(in addition to the ones usually provided\footnote{e.g. in C++, Java}):
 \begin{itemize}
 	\item \verb|XOR| - exclusive or (syntactic sugar for the boolean disequality);
 	\item \verb|<->| - logical biimplication (syntactic sugar);
 	\item \verb|->| - logical implication (syntactic sugar);
 \end{itemize}
 
-The rest is very similar to the C one. There is only a slight difference
-for the arithmetic disequality. We preferred the Pascal \verb|<>| over 
-the C \verb|!=|.
+The remaining operators are pretty similar to the ones provided by C.
+There is only a slight difference for the arithmetic disequality.
+We preferred the Pascal \verb|<>| over the C \verb|!=|.
 
 The syntactic symbols exist \emph{only} in the lexer. In the
-rest of the program, i.e. in the parser and in the semantic analyser, only
-internal representation of the operators are used. Therefore each grammar
+rest of the program, i.e. in the parser and in the semantic analyser, we used
+only internal representation of the operators. Therefore, each grammar
 symbol can be safely replaced without affecting the correctness of FAC.
 
 \subsection{Grammar}
-We will report \emph{only} the peculiarities of our grammar and not the common 
+We will report \emph{only} the peculiarities of our grammar and not the common
 features. You can find the whole grammar
 in the file \path{src/c_src/parser/parser.y}.
 
 \paragraph{Expressions}
 In F you have two types for the variables: fract and boolean.
-Originally we distinguished two grammar rules, one for boolean and 
+Originally we distinguished two grammar rules, one for boolean and
 one for arithmetic expressions. Unfortunately this distinction
-lead to bison conflicts. 
-Indeed one valid expression built by only one identifier could not be 
+lead to bison conflicts.
+Indeed one valid expression built by only one identifier could not be
 classified by bison as a boolean or as an airthmetic expression.
 
 
@@ -52,7 +52,7 @@ are checked during the type checking phase.
 
 \paragraph{Declarations}
 
-In order to avoid possible unitialized variables in the code, the grammar 
+In order to avoid possible unitialized variables in the code, the grammar
 forces the user to assign a value to a declared variable. This can avoid
 typical C undefined behaviours, that can arise when branching are involved, as
 demonstrated by the following listing:
