@@ -21,8 +21,8 @@ operators. In particular we have defined some boolean operators
 \end{itemize}
 
 The remaining operators are pretty similar to the ones provided by C.
-There is only a slight difference for the arithmetic disequality.
-We preferred the Pascal \verb|<>| over the C \verb|!=|.
+There is only a slight difference: for the arithmetic disequality we have opted
+for the Pascal \verb|<>| over the C \verb|!=|.
 
 The syntactic symbols exist \emph{only} in the lexer. In the
 rest of the program, i.e. in the parser and in the semantic analyser, we used
@@ -34,16 +34,16 @@ We will not report the whole grammar but \emph{only} its peculiarities.
 You can find the complete grammar at \path{FAC/src/parser/parser.y}.
 
 \paragraph{Expressions}
-In F you have two types for the variables: fract and boolean.
-Originally we distinguished two grammar rules, one for boolean and
-one for arithmetic expressions. Unfortunately this distinction
-lead to bison conflicts.
+In F you have two types of variables: fract and boolean.
+Originally we distinguished two grammar rules, one for booleans and
+one for the arithmetic expressions. Unfortunately, this distinction
+lead to \verb|reduce/reduce| conflicts in bison.
 Indeed one valid expression built by only one identifier could not be
-classified by bison as a boolean or as an airthmetic expression.
+classified by bison as a boolean or as an arithmetic expression.
 
 
 So, we decided to simplify the grammar to allow also malformed expressions that
-are checked during the type checking phase.
+are correctly resolved during the type checking phase.
 
 %\begin{verbatim}
 %expr,e1, e2 ::= f | b | id | e1 AOP2 e2 | AOP1 expr | !expr | e1 BOP2 e2 | e1 RELOP e2
@@ -52,9 +52,10 @@ are checked during the type checking phase.
 \paragraph{Declarations}
 
 In order to avoid possible unitialized variables in the code, the grammar
-forces the user to assign a value to a declared variable. This can avoid
-typical C undefined behaviours, that can arise when branching are involved, as
-demonstrated by the following listing:
+forces the user to assign a value to a variable when declaring it.
+Thus, the user proactively avoids possible C undefined behaviours.
+This is a typical situation which can arise
+when branching are involved, as depicted in the following example:
 \begin{verbatim}
 fract f;
 while( BEXPR ) {
@@ -63,3 +64,9 @@ while( BEXPR ) {
 }
 //is f initialized or not?
 \end{verbatim}
+
+\subsection{Error Handling}
+We have redefine the standard \verb|yyerror| function provided by bison.
+Our \verb|yyerror| implementation is variadic in order to accept any numbers of
+arguments. Also, it frees the resources used during parsing before exiting with
+failure code.
