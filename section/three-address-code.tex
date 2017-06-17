@@ -1,12 +1,12 @@
 \section{Three Address Code}
-We chose to implement the indirect triples approach to represent internally
-the three address code. As stated in the Dragon Book \cite{dragonbook} this 
-representation
-can help in optimizing the resulting code, because the instructions can be
-easily swapped to improve the performances.
+We have implemented the three address code (3AC) using indirect triples. 
+As stated by Aho et al. \cite{dragonbook}, this 
+representation can help during the code optimization phase.
+Indeed, the code optimizer can easily reorder the instructions without affecting
+the triples themselves.
 
-We generate the three address code from an AST, that passed the type checking
-phase. To make it even easier to deal the instructions we chose to use
+We generated the 3AC from the AST filtered by the type checker. 
+To make it even easier to deal the instructions we chose to use
 doubly-linked lists.
 
 The following F code is represented in 3AC as depicted in Fig. 
