@@ -6,7 +6,7 @@ It has the following responsabilities:
 \item Produce the token stream for the parser;
 \item Set the \verb|bison/flex| variable \verb|yylloc| -- this
 variable contains the information about the first column, last column,
-first row and last row of the token read. More details on its usage in
+first row and last row of the read token. More details on its usage in
 bison can be found in section \ref{sec:parser}.
 \item Raise an error in case of a fract constant with denominator equal
 to $0$ -- it is simply not considered as a valid lexeme.
@@ -25,7 +25,7 @@ for lexer symbols.
 \subsection{Comments}
 We have also implemented the regex which checks the comments. So it is possible
 to write comments directly in the source code of F programs. They will be simply
- discarded during the phase of lexical analysis.
+ discarded during the lexical analysis phase.
 
 \subsection{Options}
 We have used some flex options which enable optimizations
@@ -34,7 +34,7 @@ generated lexer does not contain a compressed table but a larger one which can
 be accessed faster than the compressed one. Also, we used the align option to
 notify flex to align memory access location of the generated table when
 possible. Unfortunately, the line tracking option kills the performances.
-In this case we have opted for a cleaner solution than an efficient one.
+In this case we have opted for a cleaner solution over an efficient one.
 
 \subsection{Modularity}
 The lexer can be generated on the fly. Indeed, each regex and each rule are
