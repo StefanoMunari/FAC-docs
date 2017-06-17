@@ -13,7 +13,7 @@ In particular, our minimal type system provides two completely unrelated types.
 
 Thus, we discriminated between them by introducing specific type-related
 operators. In particular we have defined some boolean operators
-(in addition to the ones usually provided\footnote{e.g. in C++, Java}):
+(in addition to the ones usually provided\footnote{e.g. in C++, Java.}):
 \begin{itemize}
 	\item \verb|XOR| - exclusive or (syntactic sugar for the boolean disequality);
 	\item \verb|<->| - logical biimplication (syntactic sugar for the boolean 
@@ -26,8 +26,8 @@ There is only a slight difference: for the arithmetic disequality we have opted
 for the Pascal \verb|<>| over the C \verb|!=|.
 
 The syntactic symbols exist \emph{only} in the lexer. In the
-rest of the program, i.e. in the parser and in the semantic analyser, we used
-only internal representation of the operators. Therefore, each grammar
+other components, i.e. the parser and the semantic analyzer, we used
+only the internal representation of the operators. Therefore, each grammar
 symbol can be safely replaced without affecting the correctness of FAC.
 
 \subsection{Grammar}
@@ -70,4 +70,4 @@ while( BEXPR ) {
 We have redefined the standard \verb|yyerror| function provided by bison.
 Our \verb|yyerror| implementation is variadic in order to accept any numbers of
 arguments. Also, it frees the resources used during parsing before exiting with
-failure code.
+the \verb|EXIT_FAILURE| \cite{glibc-online} status code.
