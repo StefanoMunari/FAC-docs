@@ -4,10 +4,11 @@
 The type-checker receives as input the AST created by the 
 parser. This data structure is convenient to perform
 type checking because it gets rid of the syntactic symbols and also because it 
-is easy traversable.
+is easily traversable.
 In our implementation each operator is wrapped into a category.
-For instance the operators LT, LE, EQ, NEQ, GT, GE belongs to the category 
-RELOP. So, we need only a type system rule for each operation of the category.
+For instance the operators \verb|LT, LE, EQ, NEQ, GT, GE| belongs to the 
+category \verb|RELOP|. So, we need only a single type system rule for all the
+operation of the same category.
 This makes the implementation of the type checker more readable.
 
 
