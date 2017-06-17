@@ -1,6 +1,8 @@
 \section{Symbol Table}
 We have implemented the symbol table using
-\href{https://troydhanson.github.io/uthash/}{uthash} because it is simple, reliable and efficient. Basically, the symbol table contains the variables used in the program. For each of them it stores:
+\href{https://troydhanson.github.io/uthash/}{uthash} because it is simple,
+reliable and efficient. Basically, the symbol table contains the variables used
+in the program. For each of them it stores:
 \begin{itemize}
 	\item the identifier;
 	\item the type.
@@ -12,4 +14,5 @@ The symbol table is fundamental during two phases:
 	\item Code generation - it provides the address of the variable for the
 	indirect triple representation.
 \end{itemize}
-More details on its initialization can be found in section \ref{sec:type-checking}.
+More details on its initialization can be found in section
+\ref{sec:type-checking}.
