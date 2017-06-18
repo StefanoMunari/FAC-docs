@@ -1,1 +1,42 @@
 \section{Conclusion}
+\subsection{Difficulties encountered}
+The implementation of the 3AC generator along with the C printer implementation 
+(these components are related) have been the hardest part of the project. The 
+difficulty was mostly due the lackness of a clear track to proceed. Indeed, we
+had to choose how to build the 3AC specific implementation. Initially we tried
+to implement a recursive version of the generator by passing the partial 3AC 
+list to the successors and delegating the completion of a subtree 
+(concatenating one or more lists) to the leaves. However, this approach was soon 
+discarded because too complicated to implement. So, we decide to implement a 
+recursive 3AC generator a bit more inefficient but a lot more clear and simple. 
+Basically, the lists of the 3AC are constructed when returning from the 
+recursive invocations and each composite case (e.g. if-then-else, assignment, 
+etc.) handle its subtree (lists) connections.
+\subsection{Future works}
+\paragraph{Design}
+To improve the current FAC front end design we think that a stronger decoupling 
+of the components is necessary. The interfaces and their relationships are of 
+fundamental importance for the development of the system. Currently, the code 
+suffers from the god class anti pattern \cite{Martin:2008:CCH:1388398}. 
+The parser concentrates too much dependencies and responsibilities inside 
+itself. All the invocations to the AST generator, the type checker, the 3AC 
+generator and the printer are performed by the parser! This problem was due to a
+short-sighted design decision taken when we started building the parser. 
+Unfortunately, proceeding with the project, we didn't find the time to refactor 
+this component (the parser). Indeed, other components needed to be implemented 
+in time to complete the project and to do not miss the deadline.
+
+\paragraph{Features}
+Other interesting features that could be implemented are:
+\begin{itemize}
+	\item scoped variables - automatically deallocated by the stack when they 
+	go out of scope;
+	\item first-class functions - a primitive type for function so they 
+	can be used and also passed as parameters;
+	\item pattern matching - provide a pattern matching feature to avoid using
+	nested if-then-else and make code more clear;
+	\item composite types - we found pretty interesting the lazy evaluated lists
+	provided by Haskell;
+	\item range types - this idea comes from R which lets you define a
+	range of elements with 1 statement.
+\end{itemize}
