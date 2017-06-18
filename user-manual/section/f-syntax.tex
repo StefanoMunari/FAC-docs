@@ -9,9 +9,6 @@ The operators for the boolean type are listed in table
 
 
 
-
-%	&	\verb|+ -|	& Unary plus and minus & Right-to-left \\
-%	& \verb|* /| & fract multiplication and division & Left-to-right \\ 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|}
@@ -66,5 +63,22 @@ The operators for the boolean type are listed in table
 \caption{F boolean operators.}
 \label{table:f:bool:operators}
 \end{table}
+
+\paragraph{Statements}
+The \verb|if, if-else, while| statements are very similar to the C one. Each
+``block'' is delimited by curly brackets. Each statement is separated by a 
+semicolon symbol. You can safely split statements across multiple lines 
+provided that its lexeme are valid ones.
+
+\paragraph{Print} To print the variable contents the function \verb|print(ID)|
+is provided.
+
+\paragraph{Variable Names} The first character of an identifier starts with
+either a letter or an underscore letter. The rest of the string can be freely
+build up with letters, numbers and underscores.
+
+\paragraph{Reserved Keywords}
+\verb|print, if, else, while, XOR|.
+
 
 
