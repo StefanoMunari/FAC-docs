@@ -1,0 +1,17 @@
+\section{Documentation}
+This section has been written for the developers.
+
+To generate the documentation of the FAC source code execute this command from
+the root directory of the project:
+\begin{lstlisting}[language=bash,
+caption={FAC - doc generation},captionpos=b,frame=single]
+make doc
+\end{lstlisting}
+This will generate the FAC documentation which you can find in
+\verb|doc/index.htm|.
+\\
+Alternatively, to obtain the same result, you can execute:
+\begin{lstlisting}[language=bash,
+caption={FAC - doc generation (explicit)},captionpos=b,frame=single]
+doxygen doxyfile
+\end{lstlisting}
