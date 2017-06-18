@@ -1,0 +1,61 @@
+\documentclass[10pt,a4paper]{article}
+
+%% Language and font encodings
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[english]{isodate}
+\usepackage[parfill]{parskip}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{authblk}
+
+\lstdefinelanguage{F}{%
+	language     = C,
+	morekeywords = {fract},
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{gray}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#}
+}
+
+\title{\textbf{FAC - User Manual}}
+\author[1]{Mirko Bez}
+\author[2]{Stefano Munari}
+\affil[1]{\href{mailto:mirko.bez@studenti.unipd.it}{mirko.bez@studenti.unipd.it}}
+\affil[2]{\href{mailto:stefano.munari.1@studenti.unipd.it}{stefano.munari.1@studenti.unipd.it}}
+
+% Image directory
+\graphicspath{{res/img/}}
+% Set path for the sections
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{{section/}}% append
+\makeatother
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\input{introduction}
+%\input{compile}
+%\input{run}
+%\input{doc}
+%\input{f-syntax}
+
+\end{document}
