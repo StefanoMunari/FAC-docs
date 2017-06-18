@@ -2,7 +2,7 @@
 \subsection{Difficulties encountered}
 The implementation of the 3AC generator along with the C printer implementation 
 (these components are related) have been the hardest part of the project. The 
-difficulty was mostly due the lackness of a clear track to proceed. Indeed, we
+difficulty was mostly due the lack of a clear track to proceed. Indeed, we
 had to choose how to build the 3AC specific implementation. Initially we tried
 to implement a recursive version of the generator by passing the partial 3AC 
 list to the successors and delegating the completion of a subtree 
@@ -22,7 +22,7 @@ The parser concentrates too much dependencies and responsibilities inside
 itself. All the invocations to the AST generator, the type checker, the 3AC 
 generator and the printer are performed by the parser! This problem was due to a
 short-sighted design decision taken when we started building the parser. 
-Unfortunately, proceeding with the project, we didn't find the time to refactor 
+Unfortunately, proceeding with the project, we did not find the time to refactor 
 this component (the parser). Indeed, other components needed to be implemented 
 in time to complete the project and to do not miss the deadline.
 
