@@ -11,9 +11,13 @@ compiler (over simplifying it) to implement dynamic dispatching on the top of C.
 \\
 Currently, FAC supports three printers:
 \begin{itemize}
-\item IR (Internal Representation) - useful for educational purposes or to
+\item IR (Internal Representation) -- useful for educational purposes or to
 quickly debug the 3AC;
-\item C - prints a C program;
+\item C -- prints a C program;
 \item Java\footnote{For time reasons only the skeleton has been implemented.}
-- prints a Java program.
+-- prints a Java program.
 \end{itemize}
+
+The rational behind this choice is the extensibility. Indeed in the future
+FAC could be extended even with target machine specific printers.
+
