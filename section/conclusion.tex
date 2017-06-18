@@ -11,7 +11,7 @@ discarded because too complicated to implement. So, we decide to implement a
 recursive 3AC generator a bit more inefficient but a lot more clear and simple. 
 Basically, the lists of the 3AC are constructed when returning from the 
 recursive invocations and each composite case (e.g. if-then-else, assignment, 
-etc.) handle its subtree (lists) connections.
+etc.) handles its subtree (lists) connections.
 \subsection{Future works}
 \paragraph{Design}
 To improve the current FAC front end design we think that a stronger decoupling 
@@ -29,14 +29,14 @@ in time to complete the project and to do not miss the deadline.
 \paragraph{Features}
 Other interesting features that could be implemented are:
 \begin{itemize}
-	\item scoped variables - automatically deallocated by the stack when they 
+	\item scoped variables -- automatically deallocated by the stack when they 
 	go out of scope;
-	\item first-class functions - a primitive type for function so they 
+	\item first-class functions -- a primitive type for function so they 
 	can be used and also passed as parameters;
-	\item pattern matching - provide a pattern matching feature to avoid using
+	\item pattern matching -- provide a pattern matching feature to avoid using
 	nested if-then-else and make code more clear;
-	\item composite types - we found pretty interesting the lazy evaluated lists
-	provided by Haskell;
-	\item range types - this idea comes from R which lets you define a
+	\item composite types -- we found pretty interesting the lazy evaluated 
+	lists provided by Haskell;
+	\item range types -- this idea comes from R which lets you define a
 	range of elements with 1 statement.
 \end{itemize}
