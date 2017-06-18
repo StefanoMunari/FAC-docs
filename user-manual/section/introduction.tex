@@ -1,0 +1,23 @@
+\section*{Introduction}
+
+FAC has the following \textbf{mandatory} dependencies:
+\begin{itemize}
+	\item Python - to assemble the lexer components;
+	\item Flex - to generate the lexer;
+	\item Bison - to generate the parser;
+	\item GCC - to compile and run FAC;
+	\item GNU Make - to automate and manage the project steps
+	(build, run, etc.).
+\end{itemize}
+
+The following dependencies are optional but suggested for dev usage:
+\begin{itemize}
+	\item Doxygen - to generate the documentation of the FAC source code;
+	\item Valgrind - to perform memory profiling and debugging.
+\end{itemize}
+
+The usage of the make utility is described in the following sections.
+\\
+Please make sure that you have the make utility installed (e.g. in Linux and
+Debian based distros it is part of the build-essential package\footnote{
+\url{https://packages.ubuntu.com/trusty/build-essential}}).
