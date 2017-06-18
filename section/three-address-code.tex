@@ -6,18 +6,17 @@ Indeed, the code optimizer can easily reorder the instructions without affecting
 the triples themselves. We used a doubly-linked list instead of a single-linked
 one to make it traversable in both directions.
 
-FAC generates the 3AC from the AST filtered by the type checker. 
+FAC generates the 3AC by post-order traversing the AST filtered by the type checker. 
 
-While traversing the AST we generate the three address code in a bottom up
-fashion using \emph{only} synthesized attributes. This makes the three address
-code generator intuitive.
+FAC uses \emph{only} synthesized attributes during the 3AC generation. 
+This makes the whole process pretty easy to understand.
 
 The 3AC representation of the example code \ref{f-code1} is depicted in 
 Fig. \ref{fig:ind-trpl}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.9\columnwidth]{img/eps/indirect_triples.eps}
+  \includegraphics[width=.7\columnwidth]{img/eps/indirect_triples.eps}
   \caption{FAC - example of indirected triples.}
   \label{fig:ind-trpl}
 \end{figure}
