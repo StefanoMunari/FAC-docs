@@ -1,6 +1,6 @@
 \section{Lexer}
 The lexical analyzer has been written using flex.
-It has the following responsabilities:
+It has the following responsibilities:
 \begin{itemize}
 \item Verify that the input stream is lexically correct;
 \item Produce the token stream for the parser;
@@ -13,7 +13,7 @@ to $0$ -- it is simply not considered as a valid lexeme.
 \end{itemize}
 
 \subsection{Lexemes}
-We chose to define an identifier for each lexem, this enable us to change the
+We chose to define an identifier for each lexeme, this enable us to change the
 syntax of the F language without affecting its semantics and the other
 components. Basically, the goal of this choice is to have something similar to
 a C macro or a placeholder for the syntax symbols of the F language.
