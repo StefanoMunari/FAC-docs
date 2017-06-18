@@ -2,12 +2,12 @@
 
 To execute FAC give the following commands from the root dir of the project:
 \begin{lstlisting}[language=bash,
-caption={FAC execution},captionpos=b,frame=single]
+caption={FAC - execution},captionpos=b,frame=single]
 make run ARGS="program arguments"
 \end{lstlisting}
 alternatively
 \begin{lstlisting}[language=bash,
-caption={FAC execution (explicit)},captionpos=b,frame=single]
+caption={FAC - execution (explicit)},captionpos=b,frame=single]
 ./bin/fac "program arguments"
 \end{lstlisting}
 This will execute the fac compiler on a F program generating the corresponding
@@ -16,7 +16,7 @@ targeted representation, which can be: IR, C, Java.
 For example, to compile the \verb|example.f| program and generate the related 
 \verb|main.c| program:
 \begin{lstlisting}[language=bash,
-caption={FAC execution - example},captionpos=b,frame=single]
+caption={FAC - execution: example},captionpos=b,frame=single]
 ./bin/fac example.f
 \end{lstlisting}
 This will generate two files: \verb|main.c| and \verb|fvariables.h|, 
@@ -29,6 +29,6 @@ make run ARGS="-h"
 \end{lstlisting}
 alternatively
 \begin{lstlisting}[language=bash,
-caption={FAC execution - help mode (explicit)},captionpos=b,frame=single]
+caption={FAC - execution: help mode (explicit)},captionpos=b,frame=single]
 ./bin/fac -h
 \end{lstlisting}
