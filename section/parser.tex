@@ -46,9 +46,6 @@ classified by bison as a boolean or as an arithmetic expression.
 So, we decided to simplify the grammar to allow also malformed expressions that
 are correctly resolved during the type checking phase.
 
-%\begin{verbatim}
-%expr,e1, e2 ::= f | b | id | e1 AOP2 e2 | AOP1 expr | !expr | e1 BOP2 e2 | e1 RELOP e2
-%\end{verbatim}
 
 \paragraph{Declarations}
 
@@ -61,7 +58,6 @@ when branching are involved, as depicted in the following example:
 variable},captionpos=b,label=f-code0]
 fract f;
 while(BEXPR) {
-    // Do some stuff which affects the BEXPR evaluation
     f = [1|3];
 }
 //is f initialized or not?
@@ -69,13 +65,27 @@ while(BEXPR) {
 
 \subsection{AST}
 The parser builds the AST using the representation suggested by Aho et al. 
-\cite{dragonbook}. Thus, we have implemented a k-ary
-tree by allocating exactly the needed memory on the heap for each new child. 
+\cite{dragonbook}. So, we have implemented a k-ary
+tree by dynamically allocating the memory on the heap for each new child. Thus, 
+we are able to access in O(1) each child of a node.
 Fig. is the AST representation of the following F code:
-\begin{lstlisting}[language=F,caption={Example of F code},captionpos=b,label=f-code1]
+\begin{lstlisting}[language=F,caption={Example of F code},captionpos=b,
+label=f-code1]
 fract a = [1|1];
 fract b = [1|3] * a + [1|2];
 \end{lstlisting}
+As we can see, the AST contains two kinds of nodes:
+\begin{itemize}
+	\item Sequence Node - connects the subtrees, we are representing the 
+	code as a sequence of AST trees;
+	\item AST Node - technically speaking, an abstract syntax subtree;
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\columnwidth]{img/eps/ast.eps}
+  \caption{FAC - example of AST.}
+  \label{fig:ind-trpl}
+\end{figure}
 
 \subsection{Error Handling}
 We have redefined the standard \verb|yyerror| function provided by bison.
