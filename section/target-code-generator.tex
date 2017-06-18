@@ -1,0 +1,19 @@
+\section{Target Code Generator}
+
+In FAC, the target code generator (aka printer) is the component which takes the
+three address code (3AC) of an F program given as input and generates a version
+of that code translated into a targeted representation.
+\\
+We have implemented the printer by constructing a vtable
+(using structs) which enables us to apply dynamic dispatching based on the
+specific type of the printer. Basically, we copied the idea applied by the C++
+compiler (over simplifying it) to implement dynamic dispatching on the top of C.
+\\
+Currently, FAC supports three printers:
+\begin{itemize}
+\item IR (Internal Representation) - useful for educational purposes or to
+quickly debug the 3AC;
+\item C - prints a C program;
+\item Java\footnote{For time reasons only the skeleton has been implemented.}
+- prints a Java program.
+\end{itemize}
