@@ -1,12 +1,11 @@
 \section{F Syntax}
 The syntax is pretty similar to the C one except for the fract type that
 is represented by writing \verb![numerator|denominator]!.
-The operation that can be done on a value of type fract are described in Table
+The available operator for fract type are described in Table
 \ref{table:f:fract:operators} whereas the comparison on this type are reported
 in Table \ref{table:f:fract:comparison:operators}.
 The operators for the boolean type are listed in table 
 \ref{table:f:bool:operators}.
-
 
 
 
@@ -24,8 +23,7 @@ The operators for the boolean type are listed in table
 \verb|+ -| & fract sum and difference & Left-to-right \\
 \hline
 \end{tabular}
-\caption{F operators that can be applied to fract values and return results
-of the same type.}
+\caption{F arithmetic operators -- fract types.}
 \label{table:f:fract:operators}
 
 
@@ -41,11 +39,11 @@ of the same type.}
 \verb|<=|	& less than or equal to	& Left-to-right \\ 
 \verb|==|	& equality & Left-to-right \\
 \verb|<>|	& disequality & Left-to-right \\
-\verb|>|	& bigger than & Left-to-right\\
-\verb|>=|	& bigger than or equal to & Left-to-right \\
+\verb|>|	& greater than & Left-to-right\\
+\verb|>=|	& greater than or equal to & Left-to-right \\
 \hline
 \end{tabular}
-\caption{Fract comparison operators that return boolean values.}
+\caption{Fract relational operators -- fract types}
 \label{table:f:fract:comparison:operators}
 \end{table}
 
@@ -65,7 +63,7 @@ of the same type.}
 \verb|&&|	& logical and & Left-to-right\\ 
 \hline
 \end{tabular}
-\caption{F operation that can be applied on boolean operator}
+\caption{F boolean operators.}
 \label{table:f:bool:operators}
 \end{table}
 
