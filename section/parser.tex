@@ -1,6 +1,6 @@
 \section{Parser}
 \label{sec:parser}
-The main goal of the parser written in bison is to check the
+The parser is written in bison, its main goal is to check the
 syntax correctness and to produce the Abstract Syntax Tree (AST).
 
 \subsection{F -- Syntax choices}
@@ -35,7 +35,7 @@ We will not report the whole grammar but \emph{only} its peculiarities.
 You can find the complete grammar at \path{FAC/src/parser/parser.y}.
 
 \paragraph{Expressions}
-In F you have two types of variables: fract and boolean.
+F has two types of variables: fract and boolean.
 Originally we distinguished two grammar rules, one for boolean and
 one for the arithmetic expressions. Unfortunately, this distinction
 lead to \verb|reduce/reduce| conflicts in bison.
@@ -58,7 +58,6 @@ when branching are involved, as depicted in the following example:
 variable.},captionpos=b,label=f-code0, frame = single]
 fract f;
 while(BEXPR) {
-    //Do some stuff that affects BEXPR and exit the loop
     f = [1|3];
 }
 //is f initialized or not?
@@ -77,9 +76,9 @@ fract b = [1|3] * a + [1|2];
 \end{lstlisting}
 As we can see, the AST contains two kinds of nodes:
 \begin{itemize}
-	\item Sequence Node -- connects the subtrees, we are representing the 
+	\item Sequence node -- connects the subtrees, we are representing the 
 	code as a sequence of AST trees;
-	\item AST Node -- technically speaking, an abstract syntax subtree.
+	\item AST node -- technically speaking, an abstract syntax subtree.
 \end{itemize}
 \begin{figure}[H]
   \centering
