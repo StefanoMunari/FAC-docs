@@ -8,7 +8,7 @@ representations.
 
 \subsection*{Architecture}
 Fig. \ref{fig:arch-ovw} describes the architecture of FAC.
-Its high-level structure is formed by two macro components:
+Its high-level structure is composed by two macro components:
 \begin{itemize}
 \item Lexer - the lexical analyzer;
 \item Parser - which is divided into three parts:
@@ -20,23 +20,15 @@ Its high-level structure is formed by two macro components:
 \end{itemize}
 
 FAC has been written to be modular. Indeed, it is possible to translate any F
-program into other representations simply by writing a new printer implementation.
-\\
-In FAC a printer is a component which takes the three address code (3AC) of an F
-program given as input and generates a version of that code translated into a targeted
-representation.
-\\
-Currently, FAC supports three printers:
-\begin{itemize}
-\item IR (Internal Representation) - useful for educational purposes or to quickly debug the 3AC;
-\item C - prints a C program;
-\item Java\footnote{For time reasons only the skeleton has been implemented.} - prints a Java program.
-\end{itemize}
+program into other representations simply by writing a new printer
+implementation.
 
 We chose to use two different intermediate representations:
 \begin{itemize}
-\item Abstract Syntax Three (AST) - because it is easy to perform semantic analysis on this structure;
-\item Three Address Code (3AC) - because it is easy to perform code generation by parsing this structure.
+\item Abstract Syntax Three (AST) - because it is easy to perform semantic
+analysis on this structure;
+\item Three Address Code (3AC) - because it is easy to perform code generation
+by parsing this structure.
 \end{itemize}
 
 \begin{figure}[H]
